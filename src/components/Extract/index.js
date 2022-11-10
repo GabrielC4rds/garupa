@@ -3,17 +3,22 @@ import styles from "./style.module.scss";
 import AppContext from "../../AppContext";
 
 export default function Extract() {
-  const {items, addToExtract} = useContext(AppContext);
-  
-  // let totalValue = items.map(res => res.deal === "Compra" ?parseFloat(res.value.slice(2)): parseFloat(res.value.slice(2)) * -1);
-  // var soma = 0;
-  // for(var i = 0; i < totalValue.length; i++) {
-  //   soma += totalValue[i];
-  // }
+  const { items, addToExtract } = useContext(AppContext);
+  var totalSum = 0;
+  let allValues = items.map((res) =>
+    res.deal === "Compra"
+      ? parseFloat(res.value.slice(2).replace('.', ''))
+      : parseFloat(res.value.slice(2).replace('.', '')) * -1
+  );
+  for (var i = 0; i < allValues.length; i++) {
+    totalSum += allValues[i];
+  }
   useEffect(() => {
-    const itemStorage = JSON.parse(localStorage?.getItem("myValueInLocalStorage"));
-    if(itemStorage){
-      itemStorage.map(res => addToExtract(res))
+    const itemStorage = JSON.parse(
+      localStorage?.getItem("myValueInLocalStorage")
+    );
+    if (itemStorage) {
+      itemStorage.map((res) => addToExtract(res));
     }
   }, []);
 
@@ -24,12 +29,14 @@ export default function Extract() {
         <h2>Mercadoria</h2>
         <h2>Valor</h2>
       </div>
+      {console.log("todos os valores:", allValues)}
+      {console.log("totalValue: ", totalSum)}
       {items.map((res) => {
         return (
           // eslint-disable-next-line react/jsx-key
           <div className={styles.DataDiv}>
             <div>
-              <label>{res.deal === "Compra"?"+":"-"}</label>
+              <label>{res.deal === "Compra" ? "+" : "-"}</label>
               <label>{res.name}</label>
             </div>
             <label>R$ {res.value?.slice(2)}</label>
@@ -39,8 +46,8 @@ export default function Extract() {
       <div className={styles.ResultDiv}>
         <h2>Total</h2>
         <div>
-          <h2>R$ 20</h2>
-          <label>[LUCRO]</label>
+          <h2>R$ {totalSum *-1}</h2>
+          <label>{totalSum >= 0?"[LUCRO]":"[PREJUÍZO]" }</label>
         </div>
       </div>
     </div>
