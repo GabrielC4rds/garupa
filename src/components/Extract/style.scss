@@ -1,6 +1,4 @@
-import styled from "styled-components";
-
-export const Container = styled.div`
+.Container {
   align-items: center;
   background: #fff;
   border-bottom: solid #000 1px;
@@ -25,9 +23,9 @@ export const Container = styled.div`
       font-size: 20px;
     }
   }
-`;
+}
 
-export const TitleDiv = styled.div`
+.TitleDiv {
   border-bottom: 1px solid #000;
   color: #000;
   display: flex;
@@ -36,29 +34,29 @@ export const TitleDiv = styled.div`
   width: 100%;
   @media only screen and (max-width: 600px) {
     padding: 0 25px;
-    h2{
+    h2 {
       font-size: 15px;
     }
   }
-`;
+}
 
-export const DataDiv = styled.div`
+.DataDiv {
   border-bottom: 1px solid #000;
   display: flex;
   justify-content: space-between;
   padding: 20px 10px;
   width: 100%;
-  div{
+  div {
     display: flex;
     justify-content: space-between;
     max-width: 200px;
   }
-  label{
+  label {
     margin: 0 5px;
   }
-`;
+}
 
-export const ResultDiv = styled.div`
+.ResultDiv {
   border-top: 1px solid #000;
   color: #000;
   display: flex;
@@ -66,23 +64,21 @@ export const ResultDiv = styled.div`
   margin-top: 3px;
   padding: 20px 10px;
   width: 100%;
-  h2{
+  h2 {
     margin: 0;
   }
-  div{
+  div {
     align-items: flex-end;
     display: flex;
     flex-direction: column;
     max-width: 200px;
   }
-  label{
+  label {
     margin: 0 5px;
   }
   @media only screen and (max-width: 600px) {
-    h2{
+    h2 {
       font-size: 15px;
     }
   }
-`;
-
-
+}

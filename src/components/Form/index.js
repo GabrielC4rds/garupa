@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Container, InputSelect, SubmitBtn, InputText } from "./style";
-import MaskedInput from 'react-text-mask';
-import createNumberMask from 'text-mask-addons/dist/createNumberMask'
+import styles from "./style.scss"
+import MaskedInput from "react-text-mask";
+import createNumberMask from "text-mask-addons/dist/createNumberMask"
 
 export default function Form() {
   const [deal, setDeal] = useState("Compra");
@@ -26,19 +26,19 @@ export default function Form() {
   const currencyMask = createNumberMask(defaultMaskOptions);
 
   return (
-    <Container>
+    <div className={styles.Container}>
       <form style={{ width: "100%" }}>
       <label> Tipo de Transação </label>
-        <InputSelect value={deal} onChange={handleChange}>
+        <select className={styles.InputSelect} value={deal} onChange={handleChange}>
           <option value="Compra">Compra</option>
           <option value="Venda">Venda</option>
-        </InputSelect>
+        </select>
       <label>Nome da mercadoria</label>
-      <InputText type="text" ></InputText>
+      <input className={styles.InputText} type="text" ></input>
       <label>Valor</label>
       <MaskedInput placeholder="R$0,00" mask={currencyMask} data-type="currency" type="currency" ></MaskedInput>
-      <SubmitBtn  type="submit" value="Adicionar transação" />
+      <input className={styles.SubmitBtn}  type="submit" value="Adicionar transação" />
       </form>
-    </Container>
+    </div>
   );
 }
