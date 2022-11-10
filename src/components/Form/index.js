@@ -14,9 +14,9 @@ export default function Form() {
     prefix: 'R$',
     suffix: '',
     includeThousandsSeparator: true,
-    thousandsSeparatorSymbol: ',',
+    thousandsSeparatorSymbol: '.',
     allowDecimal: true,
-    decimalSymbol: '.',
+    decimalSymbol: ',',
     decimalLimit: 2, // how many digits allowed after the decimal
     integerLimit: 7, // limit length of integer numbers
     allowNegative: false,
@@ -36,7 +36,7 @@ export default function Form() {
       <label>Nome da mercadoria</label>
       <InputText type="text" ></InputText>
       <label>Valor</label>
-      <MaskedInput placeholder="R$0.00" mask={currencyMask} data-type="currency" type="currency" ></MaskedInput>
+      <MaskedInput placeholder="R$0,00" mask={currencyMask} data-type="currency" type="currency" ></MaskedInput>
       <SubmitBtn  type="submit" value="Adicionar transação" />
       </form>
     </Container>

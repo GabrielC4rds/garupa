@@ -26,6 +26,7 @@ export const Container = styled.div`
 
   @media only screen and (max-width: 600px) {
     min-height: 50vh;
+    padding: 50px 20px;
     h1 {
       font-size: 20px;
     }
@@ -57,6 +58,7 @@ export const SubmitBtn = styled.input`
   background: #333333;
   border-radius: 5px;
   border: none;
+  margin-top: 30px;
   color: #fff;
   cursor: pointer;
   height: 40px;
