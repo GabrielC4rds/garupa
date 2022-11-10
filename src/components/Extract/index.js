@@ -3,20 +3,20 @@ import styles from "./style.module.scss";
 import AppContext from "../../AppContext";
 
 export default function Extract() {
-  const {items} = useContext(AppContext);
+  const {items, addToExtract} = useContext(AppContext);
   
-  const [storedArray, setStoredArray] = useState([]);
+  // let totalValue = items.map(res => res.deal === "Compra" ?parseFloat(res.value.slice(2)): parseFloat(res.value.slice(2)) * -1);
+  // var soma = 0;
+  // for(var i = 0; i < totalValue.length; i++) {
+  //   soma += totalValue[i];
+  // }
   useEffect(() => {
-    const items = JSON.parse(localStorage?.getItem("myValueInLocalStorage"));
-    if(items){
-      setStoredArray(items);
+    const itemStorage = JSON.parse(localStorage?.getItem("myValueInLocalStorage"));
+    if(itemStorage){
+      itemStorage.map(res => addToExtract(res))
     }
   }, []);
-  let totalValue = items.map(res => res.deal === "Compra" ?parseFloat(res.value.slice(2)): parseFloat(res.value.slice(2)) * -1);
-  var soma = 0;
-  for(var i = 0; i < totalValue.length; i++) {
-    soma += totalValue[i];
-  }
+
   return (
     <div className={styles.Container}>
       <h1>Extrato de Transações</h1>

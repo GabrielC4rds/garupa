@@ -5,28 +5,6 @@ import createNumberMask from "text-mask-addons/dist/createNumberMask";
 import AppContext from "../../AppContext";
 
 export default function Form() {
-  const {addToExtract} = useContext(AppContext);
-  // const {value} = useContext(AppContext);
-  const [dealData, setDealData] = useState({
-    name: "",
-    value: "R$0",
-    deal: "Compra",
-  });
-
-  const [resultData, setResultData] = useState([])
-  
-  const handleChange = (event) => {
-    setDealData({ ...dealData, [event.target.name]: event.target.value });
-  };
-  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    resultData.push(dealData);
-    // value = resultData;
-    addToExtract(dealData);
-    localStorage.setItem("myValueInLocalStorage", JSON.stringify(resultData));
-  };
-
   const defaultMaskOptions = {
     prefix: "R$",
     suffix: "",
@@ -39,9 +17,28 @@ export default function Form() {
     allowNegative: false,
     allowLeadingZeroes: false,
   };
-
   const currencyMask = createNumberMask(defaultMaskOptions);
 
+  const {addToExtract} = useContext(AppContext);
+  const [resultData, setResultData] = useState([])
+  const [dealData, setDealData] = useState({
+    name: "",
+    value: "R$0",
+    deal: "Compra",
+  });
+  
+  const handleChange = (event) => {
+    setDealData({ ...dealData, [event.target.name]: event.target.value });
+  };
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    resultData.push(dealData);
+    // value = resultData;
+    addToExtract(dealData);
+    localStorage.setItem("myValueInLocalStorage", JSON.stringify(resultData));
+  };
+  
   return (
     <div className={styles.Container}>
       <form style={{ width: "100%" }} onSubmit={handleSubmit}>
