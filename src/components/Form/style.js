@@ -1,19 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
   background: #fff;
-  height: auto;
+  border-bottom: solid #000 1px;
+  display: flex;
   flex-direction: column;
+  height: auto;
   justify-content: space-between;
   max-width: 1100px;
   padding: 50px;
   width: 100%;
-  border-bottom: solid #000 1px;
   form {
     display: flex;
     flex-direction: column;
-   
   }
   label {
     color: #000;
@@ -26,7 +25,7 @@ export const Container = styled.div`
   }
 
   @media only screen and (max-width: 600px) {
-    padding: 0 25px;
+    min-height: 50vh;
     h1 {
       font-size: 20px;
     }
@@ -40,26 +39,26 @@ export const InputText = styled.input`
   background: #fff;
   border-radius: 5px;
   border: 1px solid grey;
-  height: 40px;
   color: gray;
+  height: 40px;
   margin-bottom: 25px;
 `;
 
 export const InputSelect = styled.select`
   background: #fff;
+  border-radius: 5px;
   color: gray;
   height: 40px;
-  width: 100%;
   margin-bottom: 25px;
-  border-radius: 5px;
+  width: 100%;
 `;
 
 export const SubmitBtn = styled.input`
-  width: 100%;
-  height: 40px;
   background: #333333;
-  color: #fff;
-  border: none;
   border-radius: 5px;
+  border: none;
+  color: #fff;
   cursor: pointer;
+  height: 40px;
+  width: 100%;
 `;
