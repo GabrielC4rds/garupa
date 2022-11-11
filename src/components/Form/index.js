@@ -60,6 +60,7 @@ export default function Form() {
         ></input>
         <label>Valor</label>
         <MaskedInput
+          className={styles.InputText}
           onChange={handleChange}
           name="value"
           placeholder="R$ 0,00"

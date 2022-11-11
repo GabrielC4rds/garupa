@@ -13,6 +13,7 @@ export default function Home() {
           <title>Garupa</title>
           <meta name="description" content="Test made by Gabriel Cardoso" />
           <link rel="icon" href="/favicon.ico" />
+          <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"></link>
         </Head>
       <ExtractProvider>
         <Header />

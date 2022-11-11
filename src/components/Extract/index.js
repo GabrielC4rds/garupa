@@ -7,8 +7,8 @@ export default function Extract() {
   var totalSum = 0;
   let allValues = items.map((res) =>
     res.deal === "Compra"
-      ? parseFloat(res.value.slice(2).replace('.', ''))
-      : parseFloat(res.value.slice(2).replace('.', '')) * -1
+      ? parseFloat(res.value.slice(2).replace('.', '').replace(',', "."))
+      : parseFloat(res.value.slice(2).replace('.', '').replace(',', ".")) * -1
   );
   for (var i = 0; i < allValues.length; i++) {
     totalSum += allValues[i];
@@ -44,7 +44,7 @@ export default function Extract() {
       <div className={styles.ResultDiv}>
         <h2>Total</h2>
         <div>
-          <h2>R$ {totalSum *-1}</h2>
+          <h2>R$ {totalSum >= 0? totalSum : totalSum *-1}</h2>
           <label>{totalSum >= 0?"[LUCRO]":"[PREJUÍZO]" }</label>
         </div>
       </div>
