@@ -1,10 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import Header from "../components/Header";
 import Form from "../components/Form";
 import Extract from "../components/Extract";
 import { ExtractProvider } from "../AppContext";
+import React from "react";
 
 export default function Home() {
   return (
