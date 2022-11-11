@@ -34,7 +34,6 @@ export default function Form() {
   const handleSubmit = (event) => {
     event.preventDefault();
     resultData.push(dealData);
-    // value = resultData;
     addToExtract(dealData);
     localStorage.setItem("myValueInLocalStorage", JSON.stringify(resultData));
   };
@@ -42,7 +41,7 @@ export default function Form() {
   return (
     <div className={styles.Container}>
       <form style={{ width: "100%" }} onSubmit={handleSubmit}>
-        <label> Tipo de Transação </label>
+        <label> Tipo de transação </label>
         <select
           className={styles.InputSelect}
           name="deal"
@@ -57,6 +56,7 @@ export default function Form() {
           onChange={handleChange}
           className={styles.InputText}
           type="text"
+          placeholder="Input"
         ></input>
         <label>Valor</label>
         <MaskedInput

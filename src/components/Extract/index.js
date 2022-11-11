@@ -29,8 +29,6 @@ export default function Extract() {
         <h2>Mercadoria</h2>
         <h2>Valor</h2>
       </div>
-      {console.log("todos os valores:", allValues)}
-      {console.log("totalValue: ", totalSum)}
       {items.map((res) => {
         return (
           // eslint-disable-next-line react/jsx-key
