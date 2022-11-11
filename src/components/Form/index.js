@@ -40,7 +40,7 @@ export default function Form() {
   
   return (
     <div className={styles.Container}>
-      <form style={{ width: "100%" }} onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label> Tipo de transação </label>
         <select
           className={styles.InputSelect}
